@@ -44,7 +44,7 @@ This project uses a 2.13inch e-ink display with a Raspberry Pi to display crypto
    git clone https://github.com/frogCaller/e-ink-ticker.git
    cd e-ink-ticker
   
-# Usage Instructions
+# Usage
 Run the script:
    - `python3 display.py`
 
