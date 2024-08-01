@@ -20,7 +20,7 @@ This project uses a 2.13inch e-ink display with a Raspberry Pi to display crypto
    
 2. **Enable SPI & I2C:**
    - Open a terminal on your Raspberry Pi.
-   - Run sudo raspi-config.
+   - Run sudo `raspi-config`
    - Navigate to Interfacing Options -> SPI -> Enable.
    - Navigate to Interfacing Options -> I2C -> Enable.
 
