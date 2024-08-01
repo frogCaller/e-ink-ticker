@@ -50,7 +50,7 @@ Run the script:
    - `python3 display.py`
 
 # How It Works
-  - The script fetches cryptocurrency prices and 7-day historical data from the CoinGecko API.
+  - The script fetches cryptocurrency prices and 7-day historical data from the CoinGecko API every 5 minutes.
   - The data is displayed on the e-Ink screen, refreshing every 20 seconds.
   - The y-axis scale of the graphs is adjusted based on the lowest and highest prices of the week.
 
