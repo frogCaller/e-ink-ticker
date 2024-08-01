@@ -1,6 +1,6 @@
 # e-ink-ticker
 <div style="display: flex; gap: 10px;">   
-    <img src="images/verusStats.jpeg" width="300">
+    <img src="images/e-ink-display.jpeg" width="350">
 </div>
 
 This project uses a 2.13inch e-ink display with a Raspberry Pi to display crypto prices.
