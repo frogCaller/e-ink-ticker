@@ -15,6 +15,7 @@ coins = [
     {"id": "bitcoin", "name": "bitcoin", "display": "BTC", "format": 0},
     {"id": "dogecoin", "name": "dogecoin", "display": "DOGE", "format": 3},
     {"id": "litecoin", "name": "litecoin", "display": "LTC", "format": 2},
+    {"id": "verus-coin", "name": "verus-coin", "display": "VRSC", "format": 2}
 ]
 
 screen_rotate = 0
