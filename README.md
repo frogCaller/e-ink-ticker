@@ -1,4 +1,4 @@
-# e-ink Price Ticker
+# 2.13in e-ink Price Ticker
 <div style="display: flex; gap: 10px;">  
     <img src="images/e-ink-display.jpeg" width="350">
     <img src="images/dogeProject.jpeg" width="auto" height="350">
