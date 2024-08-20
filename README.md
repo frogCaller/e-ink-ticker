@@ -27,11 +27,11 @@ This project uses a 2.13inch e-ink display with a Raspberry Pi to display crypto
 
 3. **Python libraries:**
    - sudo apt-get update
-   - sudo apt-get install python3-pip
-   - sudo apt-get install python3-pil
-   - sudo apt install python3-spidev
-   - sudo apt-get install python3-numpy
-   - sudo apt install python3-matplotlib
+   - sudo apt-get install python3-pip -y
+   - sudo apt-get install python3-pil -y
+   - sudo apt install python3-spidev -y
+   - sudo apt-get install python3-numpy -y
+   - sudo apt install python3-matplotlib -y
    <br />
 
 # Wiring and Setup
