@@ -5,12 +5,11 @@ import time
 import requests
 import datetime
 import matplotlib.pyplot as plt
+import matplotlib.ticker as ticker
 from datetime import datetime, timedelta
 from waveshare_epd import epd2in13_V3
 from PIL import Image, ImageDraw, ImageFont
 
-# Coin information file
-coin_info_file = "coins.txt"
 coins = [
     {"id": "bitcoin", "name": "bitcoin", "display": "BTC", "format": 0},
     {"id": "dogecoin", "name": "dogecoin", "display": "DOGE", "format": 3},
@@ -18,8 +17,17 @@ coins = [
     {"id": "verus-coin", "name": "verus-coin", "display": "VRSC", "format": 2}
 ]
 
-screen_rotate = 0
+screen_rotate = 180
 DAYS_HISTORY = 7
+
+Font = ImageFont.truetype('Font.ttc', 24)
+# save to Data folder
+data_folder = "Data"
+if not os.path.exists(data_folder):
+    os.makedirs(data_folder)
+    
+# Coin information file
+coin_info_file = os.path.join(data_folder, "coins.txt")
 
 # Function to get the current time
 def get_current_time():
@@ -98,19 +106,28 @@ def plot_prices(prices, coin_display):
     plt.figure(figsize=(2.8, 0.9))  # Adjust figure size to be wider
     ax = plt.gca()
     ax.plot(prices, color='black')
-    ax.set_ylabel('', fontsize=6)
-    ax.set_xticks([])  # Remove x-axis labels
-    ax.set_yticks(ax.get_yticks())  # Keep y-axis labels
-    ax.yaxis.set_tick_params(labelsize=6)
-    ax.grid(False)  # Remove grid lines
-    for spine in ax.spines.values():
-        spine.set_visible(False)  # Remove plot border
 
     # Set the y-axis limits to the range of the prices
     ax.set_ylim([min(prices), max(prices)])
 
-    # Save the plot to an image file
-    plot_path = f"{coin_display}_plot.png"
+    # Determine y-axis label format based on coin display name
+    if coin_display == "BTC":
+        # For Bitcoin, show large numbers without decimal places
+        ax.yaxis.set_major_formatter(ticker.FuncFormatter(lambda x, _: f'{x:,.0f}'))
+    else:
+        # For other coins, show two decimal places
+        ax.yaxis.set_major_formatter(ticker.FuncFormatter(lambda x, _: f'{x:,.2f}'))
+        
+    ax.tick_params(axis='y', labelsize=6)
+
+    # Remove x-axis labels and plot border
+    ax.set_xticks([]) 
+    ax.grid(False) 
+    for spine in ax.spines.values():
+        spine.set_visible(False)
+
+    # Save the plot to an image file in the Data folder
+    plot_path = os.path.join(data_folder, f"{coin_display}_plot.png")
     plt.savefig(plot_path, dpi=100, bbox_inches='tight')
     plt.close()
     return plot_path
@@ -119,12 +136,6 @@ def main():
     epd = epd2in13_V3.EPD()
     epd.init()
     epd.Clear(0xFF)
-
-    # Drawing on the image
-    font1 = ImageFont.truetype('Font.ttc', 12)
-    font2 = ImageFont.truetype('Font.ttc', 15)
-    font3 = ImageFont.truetype('Font.ttc', 18)
-    font24 = ImageFont.truetype('Font.ttc', 24)
 
     while True:
         # Display coin prices and graphs
@@ -140,7 +151,7 @@ def main():
                 draw = ImageDraw.Draw(image)
 
                 # Draw the price at the top
-                draw.text((5, 0), f"{coin['display']}: ${coin_price:,.{coin['format']}f}", font=font24, fill=0)
+                draw.text((5, 0), f"{coin['display']}: ${coin_price:,.{coin['format']}f}", font=Font, fill=0)
 
                 # Paste the plot image below the price text
                 image.paste(plot_image, (-10, 30))
@@ -149,7 +160,7 @@ def main():
                 image = image.rotate(screen_rotate)
 
                 epd.displayPartial(epd.getbuffer(image))
-                time.sleep(20)  # Display each coin price and graph for 20 seconds
+                time.sleep(30)  # Display each coin price and graph for 30 seconds
             else:
                 print("Failed to retrieve coin price or historical prices")
 
