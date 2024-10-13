@@ -46,7 +46,7 @@ This project uses a 2.13inch e-ink display with a Raspberry Pi to display crypto
   
 # Usage
 Run the script:
-   - `python3 display.py`
+   - `python3 ticker.py`
 
 # How It Works
   - The script fetches cryptocurrency prices and 7-day historical data from the CoinGecko API every 5 minutes.
