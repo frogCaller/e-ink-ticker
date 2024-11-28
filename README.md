@@ -3,7 +3,7 @@
     <img src="images/e-ink-display.jpeg" width="350">
 </div>
 
-This project uses a 2.13inch e-ink display with a Raspberry Pi to display crypto prices.
+This project uses a 2.13inch e-ink display with a Raspberry Pi to display crypto prices.<br />
 Data provided by [CoinGecko](https://www.coingecko.com/en/api)
 
 # Materials
