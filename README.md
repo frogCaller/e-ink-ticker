@@ -28,7 +28,7 @@ Data provided by [CoinGecko](https://www.coingecko.com/en/api)
 3. Clone the repository:
    ```bash
    sudo apt install -y git
-   git clone https://github.com/frogCaller/cryptogotchi.git
+   git clone https://github.com/frogCaller/e-ink-ticker.git
    cd cryptogotchi
 
 # Wiring and Setup
