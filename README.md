@@ -4,6 +4,7 @@
 </div>
 
 This project uses a 2.13inch e-ink display with a Raspberry Pi to display crypto prices.
+Data provided by [CoinGecko](https://www.coingecko.com/en/api)
 
 # Materials
 * [Raspberry pi Zero 2 WH](https://amzn.to/3VO7eu2)<br />
@@ -24,29 +25,27 @@ This project uses a 2.13inch e-ink display with a Raspberry Pi to display crypto
    - Navigate to Interfacing Options -> SPI -> Enable.
    - Navigate to Interfacing Options -> I2C -> Enable.
 
-3. **Python libraries:**
-   - sudo apt-get update
-   - sudo apt-get install python3-pip -y
-   - sudo apt-get install python3-pil -y
-   - sudo apt install python3-spidev -y
-   - sudo apt-get install python3-numpy -y
-   - sudo apt install python3-matplotlib -y
-   <br />
+3. Clone the repository:
+   ```bash
+   sudo apt install -y git
+   git clone https://github.com/frogCaller/cryptogotchi.git
+   cd cryptogotchi
 
 # Wiring and Setup
 1. **Connect 2.13inch e-Ink HAT to Raspberry Pi:**
    - Connect the 2.13inch e-Ink HAT to your Raspberry Pi. <br />
    - Connect the UPS Hat for continuous power supply. This will allow you to move the project anywhere without worrying about power interruptions.
 
-2. Clone the repository:
+2. **Install System and Python Dependencies:**
    ```bash
-   sudo apt install git -y
-   git clone https://github.com/frogCaller/e-ink-ticker.git
-   cd e-ink-ticker
+   chmod +x setup.sh
+   ./setup.sh
   
 # Usage
 Run the script:
-   - `python3 ticker.py`
+   ```
+   python3 ticker.py
+   ```
 
 # How It Works
   - The script fetches cryptocurrency prices and 7-day historical data from the CoinGecko API every 5 minutes.
