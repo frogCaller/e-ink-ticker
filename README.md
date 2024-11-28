@@ -29,7 +29,7 @@ Data provided by [CoinGecko](https://www.coingecko.com/en/api)
    ```bash
    sudo apt install -y git
    git clone https://github.com/frogCaller/e-ink-ticker.git
-   cd cryptogotchi
+   cd e-ink-ticker
 
 # Wiring and Setup
 1. **Connect 2.13inch e-Ink HAT to Raspberry Pi:**
